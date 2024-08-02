@@ -42,3 +42,10 @@ function playRound(human, computer) {
     computerScore += 1;
   }
 }
+
+function playGame() {
+  const humanChoice = getHumanChoice();
+  const computerChoice = getComputerChoice();
+
+  playRound(humanChoice, computerChoice);
+}
