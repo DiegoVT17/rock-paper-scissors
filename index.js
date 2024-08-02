@@ -49,3 +49,17 @@ function playGame() {
 
   playRound(humanChoice, computerChoice);
 }
+
+let rounds = 5;
+while (rounds > 0) {
+  playGame();
+  rounds -= 1;
+}
+
+if (humanScore > computerScore) {
+  alert(`Your score is ${humanScore}, you win!!`);
+} else if (humanScore < computerScore) {
+  alert(`Computer's score is ${computerScore}, you lose!!`);
+} else {
+  alert("It's a freaking tie!!");
+}
