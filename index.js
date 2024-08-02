@@ -5,3 +5,9 @@ function getComputerChoice() {
 
   return computerChoice;
 }
+
+function getHumanChoice() {
+  const playerMove = prompt("Enter your move: ", "");
+
+  return playerMove.toLowerCase();
+}
