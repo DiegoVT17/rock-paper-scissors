@@ -44,6 +44,8 @@ function playRound(human, computer) {
     compScore += 1;
   }
 
+  checkWinner();
+
   playerScore.textContent = `Player Score: ${humanScore}`;
   computerScore.textContent = `Computer Score: ${compScore}`;
 }
@@ -57,10 +59,21 @@ btnContainer.addEventListener("click", (e) => {
   playRound(humanChoice, computerChoice);
 });
 
-// if (humanScore > computerScore) {
-//   alert(`Your score is ${humanScore}, you win!!`);
-// } else if (humanScore < computerScore) {
-//   alert(`Computer's score is ${computerScore}, you lose!!`);
-// } else {
-//   alert("It's a freaking tie!!");
-// }
+function checkWinner() {
+  const winnerMessage = document.querySelector(".final-score");
+  const roundMessage = document.querySelector(".round-message");
+
+  if (humanScore === 5) {
+    roundMessage.textContent = "";
+    winnerMessage.textContent = `Player: ${humanScore}, Computer: ${compScore}. You win!!`;
+
+    humanScore = 0;
+    compScore = 0;
+  } else if (compScore === 5) {
+    roundMessage.textContent = "";
+    winnerMessage.textContent = `Player: ${humanScore}, Computer: ${compScore}. You lose!!`;
+
+    humanScore = 0;
+    compScore = 0;
+  }
+}
