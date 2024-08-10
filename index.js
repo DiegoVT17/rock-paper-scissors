@@ -6,60 +6,61 @@ function getComputerChoice() {
   return computerChoice;
 }
 
-function getHumanChoice() {
-  const playerMove = prompt("Enter your move: ", "");
-
-  return playerMove.toLowerCase();
-}
-
 let humanScore = 0;
-let computerScore = 0;
+let compScore = 0;
+
+const playerScore = document.querySelector(".player-score");
+const computerScore = document.querySelector(".computer-score");
+
+playerScore.textContent = `Player Score: ${humanScore}`;
+computerScore.textContent = `Computer Score: ${compScore}`;
 
 function playRound(human, computer) {
+  const roundMessage = document.querySelector(".round-message");
+
   if (human === "paper" && computer === "scissors") {
-    console.log("Scissors cuts paper, point for the computer!");
-    computerScore += 1;
+    roundMessage.textContent = "Scissors cuts paper, point for the computer!";
+    compScore += 1;
   } else if (human === "rock" && computer === "scissors") {
-    console.log("Rock beats scissors, point for you!");
+    roundMessage.textContent = "Rock beats scissors, point for you!";
     humanScore += 1;
   } else if (human === "scissors" && computer === "scissors") {
-    console.log("It's a tie, no one gets a point!");
+    roundMessage.textContent = "It's a tie, no one gets a point!";
   } else if (human === "paper" && computer === "paper") {
-    console.log("It's a tie, no one gets a point!");
+    roundMessage.textContent = "It's a tie, no one gets a point!";
   } else if (human === "rock" && computer === "paper") {
-    console.log("Paper covers rock, point for the computer!");
-    computerScore += 1;
+    roundMessage.textContent = "Paper covers rock, point for the computer!";
+    compScore += 1;
   } else if (human === "scissors" && computer === "paper") {
-    console.log("Scissors cuts paper, point for you!!");
+    roundMessage.textContent = "Scissors cuts paper, point for you!!";
     humanScore += 1;
   } else if (human === "paper" && computer === "rock") {
-    console.log("Paper covers rock, point for you!");
+    roundMessage.textContent = "Paper covers rock, point for you!";
     humanScore += 1;
   } else if (human === "rock" && computer === "rock") {
-    console.log("It's a tie, no one gets a point!");
+    roundMessage.textContent = "It's a tie, no one gets a point!";
   } else if (human === "scissors" && computer === "rock") {
-    console.log("Rock beats scissors, point for the computer!");
-    computerScore += 1;
+    roundMessage.textContent = "Rock beats scissors, point for the computer!";
+    compScore += 1;
   }
+
+  playerScore.textContent = `Player Score: ${humanScore}`;
+  computerScore.textContent = `Computer Score: ${compScore}`;
 }
 
-function playGame() {
-  const humanChoice = getHumanChoice();
+const btnContainer = document.querySelector(".options");
+
+btnContainer.addEventListener("click", (e) => {
+  const humanChoice = e.target.className;
   const computerChoice = getComputerChoice();
 
   playRound(humanChoice, computerChoice);
-}
+});
 
-let rounds = 5;
-while (rounds > 0) {
-  playGame();
-  rounds -= 1;
-}
-
-if (humanScore > computerScore) {
-  alert(`Your score is ${humanScore}, you win!!`);
-} else if (humanScore < computerScore) {
-  alert(`Computer's score is ${computerScore}, you lose!!`);
-} else {
-  alert("It's a freaking tie!!");
-}
+// if (humanScore > computerScore) {
+//   alert(`Your score is ${humanScore}, you win!!`);
+// } else if (humanScore < computerScore) {
+//   alert(`Computer's score is ${computerScore}, you lose!!`);
+// } else {
+//   alert("It's a freaking tie!!");
+// }
