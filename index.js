@@ -17,6 +17,7 @@ computerScore.textContent = `Computer Score: ${compScore}`;
 
 function playRound(human, computer) {
   const roundMessage = document.querySelector(".round-message");
+  const winnerMessage = document.querySelector(".final-score");
 
   if (human === "paper" && computer === "scissors") {
     roundMessage.textContent = "Scissors cuts paper, point for the computer!";
@@ -44,6 +45,8 @@ function playRound(human, computer) {
     compScore += 1;
   }
 
+  winnerMessage.textContent = "";
+  winnerMessage.classList.remove("winner");
   checkWinner();
 
   playerScore.textContent = `Player Score: ${humanScore}`;
@@ -66,12 +69,14 @@ function checkWinner() {
   if (humanScore === 5) {
     roundMessage.textContent = "";
     winnerMessage.textContent = `Player: ${humanScore}, Computer: ${compScore}. You win!!`;
+    winnerMessage.classList.add("winner");
 
     humanScore = 0;
     compScore = 0;
   } else if (compScore === 5) {
     roundMessage.textContent = "";
     winnerMessage.textContent = `Player: ${humanScore}, Computer: ${compScore}. You lose!!`;
+    winnerMessage.classList.add("winner");
 
     humanScore = 0;
     compScore = 0;

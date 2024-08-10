@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+
+body {
+  background-color: rgb(20, 20, 80);
+  padding: 10px;
+  overflow: hidden;
+}
+
+.main-container {
+  height: 100vh;
+  display: grid;
+  place-content: center;
+  gap: 30px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 52px;
+}
+
+.options {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+.options button {
+  font-size: 96px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+}
+
+.options button:hover {
+  background-color: rgba(15, 15, 73, 0.7);
+  border-radius: 10px;
+  padding: 0;
+}
+
+.round-message {
+  height: 25px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.final-score {
+  font-size: 25px;
+  font-weight: bold;
+  color: red;
+  text-align: center;
+  height: fit-content;
+}
+
+.messages-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.messages-container p {
+  font-size: 20px;
+}
+
+.winner {
+  border: 1px solid rgb(224, 54, 54);
+  padding: 3px;
+  border-radius: 10px;
+}
